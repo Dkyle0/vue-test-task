@@ -1,4 +1,3 @@
-# Шаг 1: Используем Node.js для сборки проекта
 FROM node:16 AS build-stage
 
 WORKDIR /app
