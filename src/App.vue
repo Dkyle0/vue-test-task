@@ -1,32 +1,50 @@
 <template>
-  <div id="app">
-    <nav>
-      <router-link to="/">Home</router-link> |
-      <router-link to="/about">About</router-link>
-    </nav>
-    <router-view />
-  </div>
+	<v-app>
+		<v-app-bar app dark class="custom-toolbar">
+			<v-tabs v-model="activeTab" class="custom-tabs">
+				<v-tab to="/one">Tab One</v-tab>
+				<v-tab to="/two">Tab Two</v-tab>
+			</v-tabs>
+		</v-app-bar>
+		<v-main>
+			<router-view :key="$route.fullPath" />
+			<v-snackbar v-model="snackbar" :timeout="3000">{{
+				snackbarMessage
+			}}</v-snackbar>
+		</v-main>
+	</v-app>
 </template>
 
-<style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-}
+<script lang="ts">
+import Vue from "vue";
+import { mapGetters } from "vuex";
+import { Route } from "vue-router";
 
-nav {
-  padding: 30px;
-}
+export default Vue.extend({
+	data() {
+		return {
+			activeTab: this.$route.path,
+		};
+	},
+	computed: {
+		...mapGetters({
+			snackbarMessage: "getSnackbarMessage",
+		}),
+		snackbar: {
+			get() {
+				return this.$store.getters.getSnackbar;
+			},
+			set(value: boolean) {
+				this.$store.commit("SET_SNACKBAR", value);
+			},
+		},
+	},
+	watch: {
+		$route(to: Route) {
+			this.activeTab = to.path;
+		},
+	},
+});
+</script>
 
-nav a {
-  font-weight: bold;
-  color: #2c3e50;
-}
-
-nav a.router-link-exact-active {
-  color: #42b983;
-}
-</style>
+<style scoped></style>
