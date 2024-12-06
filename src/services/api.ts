@@ -7,7 +7,7 @@ export const getPosts = async () => {
 		);
 		return response.data;
 	} catch (error) {
-		console.error("Error sending posts:", error);
+		console.error("Error getting posts:", error);
 		throw error;
 	}
 };
@@ -23,7 +23,6 @@ export const sendFile = async (formData: FormData) => {
 				},
 			}
 		);
-		console.log(response.data);
 		return response.data;
 	} catch (error) {
 		console.error("Error sending file:", error);
