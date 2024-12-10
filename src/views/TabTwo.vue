@@ -1,6 +1,6 @@
 <template>
 	<v-container>
-		<v-card elevation="6" class="card-container">
+		<v-card elevation="6" class="d-flex flex-column justify-center pa-4">
 			<v-toolbar-title class="page-title">Upload a file</v-toolbar-title>
 			<v-file-input
 				:disabled="fileData.isUploading || fileData.isDone"
@@ -107,11 +107,4 @@ export default Vue.extend({
 });
 </script>
 
-<style>
-.card-container {
-	padding: 2%;
-	display: flex;
-	flex-direction: column;
-	justify-content: center;
-}
-</style>
+<style></style>

@@ -1,10 +1,10 @@
 <template>
 	<v-navigation-drawer width="40%" v-model="params.drawers" app>
-		<v-form class="drawer-container" @submit.prevent="savePost">
+		<v-form class="ma-2" @submit.prevent="savePost">
 			<v-text-field v-model="localSelectedPost.title" label="Title" />
 			<v-text-field v-model="localSelectedPost.userId" label="UserId" />
 			<v-textarea v-model="localSelectedPost.body" label="Body" />
-			<div class="btn-container">
+			<div class="d-flex justify-space-between">
 				<v-btn dark @click="closeDrawer">Cancel</v-btn>
 				<v-btn @click="savePost(localSelectedPost)">Save</v-btn>
 			</div>
@@ -55,13 +55,4 @@ export default Vue.extend({
 });
 </script>
 
-<style scoped>
-.drawer-container {
-	margin: 1%;
-}
-
-.btn-container {
-	display: flex;
-	justify-content: space-between;
-}
-</style>
+<style scoped></style>

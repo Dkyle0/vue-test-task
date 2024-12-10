@@ -12,7 +12,7 @@
 		>
 			<template v-slot:top>
 				<v-toolbar flat>
-					<v-toolbar-title class="page-title">Posts</v-toolbar-title>
+					<v-toolbar-title class="mr-2">Posts</v-toolbar-title>
 					<v-btn small icon outlined @click="openNewPostDrawer">
 						<v-icon dark> mdi-plus </v-icon>
 					</v-btn>
@@ -161,8 +161,4 @@ export default Vue.extend({
 });
 </script>
 
-<style>
-.page-title {
-	margin-right: 10px;
-}
-</style>
+<style></style>
